@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido</title>
+</head>
+<body>
+    <div>
+        <h1>Quer namorar comigo?</h1>
+        <div class='buttons'>
+          <button id="sim">Sim</button>
+          <button onclick="" id="nao">Não</button>
+        </div>
+      </div>
+</body>
+    <style>
+        body {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin: -100px 0 0 -150px;
+  font-family: "Roboto", sans-serif;
+  background-image: "";
+  background-image: url("/Untitled-1.png");
+}
+
+h1 {
+  font-weight: 300;
+  color: black;
+}
+
+button {
+  padding: 10px 40px;
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  border: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+button:first-child {
+  background-color: green;
+}
+
+button:nth-child(2) {
+  background-color: red;
+}
+
+div.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 100px;
+  margin-top: 30px;
+}
+    </style>
+    <script>
+        var moveButton = document.querySelector("button:nth-child(2)");
+
+        var correctlyButton = document.querySelector("button:first-child");
+
+        moveButton.addEventListener("click", function () {
+        var vertical = Math.floor(Math.random() * 400);
+        var horizontal = Math.floor(Math.random() * 400);
+        moveButton.style.position = "absolute";
+        moveButton.style.left = vertical + "px";
+        moveButton.style.top = horizontal + "px";
+});
+
+/*correctlyButton.addEventListener("click", function () {
+  alert("Ainda bem. Olha pra mim💗💗");
+});
+    */
+
+let clickCount = 0;
+let clicknaoCount = 0;
+        const button = document.getElementById('nao');
+
+        button.addEventListener('click', () => {
+            nao.style.width = '70px';
+            nao.style.height = '60px';
+            sim.style.width = '200px';
+            sim.style.height = '80px';
+            clicknaoCount++;
+            if (clicknaoCount === 5) {
+                window.location.href = 'https://youtu.be/C_DS1j8tx8k?si=K-ttlQD4c0jv5Rv4&t=34';
+            }
+        });
+        const goodbutton = document.getElementById('sim');
+
+        goodbutton.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount === 1) {
+                alert("Tem certeza??");
+            } else if (clickCount === 2) {
+            alert("Certeza Mesmo???")
+        } else if (clickCount === 3) {
+            alert("Absoluta certeza????")
+        } else if (clickCount === 4) {
+            alert("Ainda bem. Olha pra mim💗💗")
+        }
+        }); 
+    </script>
+</html>
