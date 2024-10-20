@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedido</title>
 </head>
 <body>
-    <div>
+  <form id="myForm">
+    <label for="nameInput">Seu nome:</label>
+    <input type="text" id="nameInput" placeholder="Escreve aqui dentro">
+    <button type="submit">Tenta</button>
+</form>
+    <div id="hiddenContent">
         <h1>Quer namorar comigo?</h1>
         <div class='buttons'>
           <button id="sim">Sim</button>
@@ -15,15 +20,18 @@
       </div>
 </body>
     <style>
+      #hiddenContent {
+            display: none;
+        }
         body {
   top: 50%;
   left: 50%;
   position: absolute;
   margin: -100px 0 0 -150px;
-  font-family: "Roboto", sans-serif;
+  font-family: Verdana, sans-serif;
   background-image: url("https://wallpapercave.com/wp/wp3169932.jpg");
   background-size: 100vw 100vh;
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -34,20 +42,21 @@ h1 {
 button {
   padding: 10px 40px;
   border-radius: 5px;
-  font-family: "Roboto", sans-serif;
-  border: transparent;
-  color: white;
+  border-style: dashed;
+  border-radius: 1rem;
+  color: black;
   cursor: pointer;
   font-size: 16px;
+  background-color: rgba(0,0,0,0.0005);
   transition: all 0.3s ease;
 }
 
 button:first-child {
-  background-color: green;
+  border-color: green;
 }
 
 button:nth-child(2) {
-  background-color: red;
+  border-color: red;
 }
 
 div.buttons {
@@ -81,10 +90,6 @@ let clicknaoCount = 0;
         const button = document.getElementById('nao');
 
         button.addEventListener('click', () => {
-            nao.style.width = '70px';
-            nao.style.height = '60px';
-            sim.style.width = '200px';
-            sim.style.height = '80px';
             clicknaoCount++;
             if (clicknaoCount === 10) {
                 window.location.href = 'https://youtu.be/C_DS1j8tx8k?si=K-ttlQD4c0jv5Rv4&t=34';
@@ -104,5 +109,15 @@ let clicknaoCount = 0;
             alert("Ainda bem. Olha pra mim💗💗")
         }
         }); 
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nameInput = document.getElementById('nameInput').value;
+            if (nameInput === "Aline") {
+                document.getElementById('hiddenContent').style.display = 'block';
+                document.getElementById('myForm').style.display = 'none'
+            } else {
+                alert('Somente posso ser de uma🔒');
+            }
+        });
     </script>
 </html>
